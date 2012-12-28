@@ -23,4 +23,10 @@
     <%= link_to 'Sign up', new_user_registration_path %>
     </li>
   <% end %>
+  <li>
+    <%= link_to t('nav.soundfile'),{:action => 'index',:controller => '/soundfile'} %>
+  </li>
+  <li>
+    <%= link_to t('nav.callbox'),{:action => 'index',:controller => '/callbox'} %>
+  </li>
 </ul>

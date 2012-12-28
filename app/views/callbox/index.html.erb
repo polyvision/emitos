@@ -1,0 +1,35 @@
+<div class="page-header">
+	<h1><%= t('nav.callbox') %></h1>
+</div>
+
+<%= simple_form_for(@call_box_prototype,:url =>{:action => 'create'}, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :mac %>
+  <%= f.association :sound_file,:include_blank => false %>
+  <%= f.submit %>
+<% end %>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><%= t('misc.id') %></th>
+			<th><%= t('misc.created_at') %></th>
+			<th><%= t('misc.name') %></th>
+			<th><%= t('misc.mac') %></th>
+			<th><%= t('call_box.sound_file') %></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @call_boxes.each do |cb| %>
+			<tr>
+				<td><%= cb.id %></td>
+				<td><%= cb.created_at.to_s(:long) %></td>
+				<td><%= cb.name %></td>
+				<td><%= cb.mac %></td>
+				<td><%= cb.sound_file %></td>
+				<td><%= render :partial => 'dropdown',:locals => {:box => cb} %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
