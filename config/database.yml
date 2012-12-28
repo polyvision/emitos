@@ -10,6 +10,6 @@ development:
   database: emitos
   pool: 5
   username: root
-  password:
+  password: defaultpw
   host: localhost
 
