@@ -1,0 +1,28 @@
+<h3><%= t('call_box_statistic.label.active_ones') %></h3>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><%= t('misc.id') %></th>
+			<th><%= t('call_box.name') %></th>
+			<th><%= t('call_box.mac') %></th>
+			<th><%= t('misc.created_at') %></th>
+			<th><%= t('call_box_statistic.num_call') %></th>
+			<th></th>
+		</td>
+	</thead>
+	<tbody>
+	<% @active_call_boxes_stats.each do |stat| %>
+		<tr>
+			<td><%= stat.id %></td>
+			<td><%= stat.call_box.name %></td>
+			<td><%= stat.call_box.mac %></td>
+			<td><%= I18n.localize(stat.created_at) %></td>
+			<td><%= stat.num_call %></td>
+			<td>
+				<%= link_to('<i class="icon-stop"></i>'.html_safe,{:action => 'callbox_deactivate',:controller => 'api',:id => stat.call_box.mac,:cbs_type => CallBoxStatistic::STATE_DEACTIVATED_BY_DAEMON},{:class => 'btn btn-primary',:remote => true}) %>
+			</th>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

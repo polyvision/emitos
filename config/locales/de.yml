@@ -1,0 +1,24 @@
+de:
+  nav:
+    callbox: Rufstationen
+    soundfile: Sound-Dateien
+
+  call_box:
+    sound_file: Sound-Datei
+    mac: MAC-Adresse
+    name: Name
+    test_sound: Soundtest
+
+  call_box_statistic:
+    label:
+      active_ones: Aktive Rufsäulen
+    num_call: Aufrufnr.
+
+  actions:
+    actions: Aktionen
+    create: erstellen
+  misc:
+    created_at: erstellt am
+    name: Name
+    id: "#"
+    mac: MAC-Adresse

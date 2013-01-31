@@ -4,6 +4,6 @@
  		<span class="caret"></span>
  	</a>
  	<ul class="dropdown-menu">
- 		<li><%= link_to(t('call_box.text_sound'),{:action => 'test_sound',:id => box.id},{:remote => true}) %></li>
+ 		<li><%= link_to("<i class=\"icon-play-circle\"></i> #{t('call_box.test_sound')}".html_safe,{:action => 'test_sound',:id => box.id},{:remote => true}) %></li>
  </ul>
 </div>

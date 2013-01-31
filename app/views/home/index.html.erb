@@ -1,4 +1,22 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<div class="page-header">
+	<h1>Dashboard</h1>
+</div>
+
+<div id="active_call_box_container">
+<%= render(:file => 'app/views/home/active_call_boxes') %>
+</div>
+
+<script type="text/javascript">
+
+function update() {
+	$.get('/home/active_call_boxes', function(data) {
+		$('#active_call_box_container').html(data);
+		window.setTimeout(update, 3000);
+	});
+}
+
+$(document).ready(function() {
+    update();
+});
+
+</script>

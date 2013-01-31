@@ -3,6 +3,9 @@ Emitos::Application.routes.draw do
     root :to => 'home#index'
   end
 
+  match 'api/callbox/activate/:id' => 'api#callbox_activate'
+  match 'api/callbox/deactivate/:id' => 'api#callbox_deactivate'
+
   match 'soundfile' => 'soundfile#index'
   match 'soundfile/create' => 'soundfile#create'
 
@@ -11,6 +14,8 @@ Emitos::Application.routes.draw do
   match 'callbox/edit/:id' => 'callbox#edit'
   match 'callbox/update/:id' => 'callbox#update'
   match 'callbox/test_sound/:id' => 'callbox#test_sound', :format => :js
+
+  match 'home/active_call_boxes' => 'home#active_call_boxes'
 
   root :to => "home#index"
   devise_for :users

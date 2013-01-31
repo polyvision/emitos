@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228100158) do
+ActiveRecord::Schema.define(:version => 20121228144952) do
+
+  create_table "call_box_statistics", :force => true do |t|
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "call_box_id"
+    t.integer  "state",       :default => 1
+    t.integer  "num_call",    :default => 1
+  end
 
   create_table "call_boxes", :force => true do |t|
     t.datetime "created_at",    :null => false

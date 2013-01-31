@@ -1,2 +1,44 @@
 class ApiController < ApplicationController
+	def callbox_activate
+		call_box = CallBox.where(:mac => params[:id]).first
+
+		if call_box
+			call_box_statistic = CallBoxStatistic.where("call_box_id=? AND state=?",call_box.id,CallBoxStatistic::STATE_ACTIVE).first
+
+			if !call_box_statistic
+				call_box_statistic = CallBoxStatistic.new
+				call_box_statistic.call_box_id = call_box.id
+				call_box_statistic.state = CallBoxStatistic::STATE_ACTIVE
+				call_box_statistic.save
+			end
+		end
+
+		if call_box
+			render :text => 'TRUE'
+		else
+			render :text => 'FALSE'
+		end
+	end
+
+	def callbox_deactivate
+		call_box = CallBox.where(:mac => params[:id]).first
+
+		if call_box
+			call_box_statistic = CallBoxStatistic.where("call_box_id=? AND state=?",call_box.id,CallBoxStatistic::STATE_ACTIVE).first
+			if call_box_statistic
+				if params[:cbs_type] != nil && params[:cbs_type].to_i > 1
+					call_box_statistic.state = params[:cbs_type].to_i
+				else
+					call_box_statistic.state = CallBoxStatistic::STATE_DEACTIVATED_BY_CUSTOMER
+				end
+				call_box_statistic.save
+			end
+		end
+
+		if call_box
+			render :text => 'TRUE'
+		else
+			render :text => 'FALSE'
+		end
+	end
 end

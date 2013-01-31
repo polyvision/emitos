@@ -3,11 +3,13 @@
 </div>
 
 <%= simple_form_for(@call_box_prototype,:url =>{:action => 'create'}, :html => {:class => 'form-horizontal' }) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :mac %>
-  <%= f.association :sound_file,:include_blank => false %>
-  <%= f.submit %>
+  <%= f.input :name,:label => t('call_box.name') %>
+  <%= f.input :mac,:label => t('call_box.mac') %>
+  <%= f.association :sound_file,:include_blank => false,:label => t('call_box.sound_file') %>
+  <%= f.button :submit,t('actions.create'), :input_html => { :class => 'btn btn-primary'}  %>
 <% end %>
+
+<hr/>
 
 <table class="table table-striped">
 	<thead>
