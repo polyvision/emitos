@@ -30,8 +30,16 @@
 				<td><%= cb.name %></td>
 				<td><%= cb.mac %></td>
 				<td><%= cb.sound_file %></td>
-				<td><%= render :partial => 'dropdown',:locals => {:box => cb} %></td>
+				<td>
+					<%= render :partial => 'dropdown',:locals => {:box => cb} %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox({type: 'ajax'});
+	});
+</script>

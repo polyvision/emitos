@@ -8,6 +8,7 @@ de:
     mac: MAC-Adresse
     name: Name
     test_sound: Soundtest
+    edit: Bearbeiten
 
   call_box_statistic:
     label:
@@ -17,6 +18,8 @@ de:
   actions:
     actions: Aktionen
     create: erstellen
+    update: aktualisieren
+    edit: bearbeiten
   misc:
     created_at: erstellt am
     name: Name

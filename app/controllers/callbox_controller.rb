@@ -11,6 +11,17 @@ class CallboxController < ApplicationController
 		redirect_to :action => 'index'
 	end
 
+	def edit
+		@call_box = CallBox.find(params[:id])
+		render :layout => false
+	end
+
+	def update
+		@call_box = CallBox.find(params[:id])
+		@call_box.update_attributes(params[:call_box])
+		redirect_to :action => 'index'
+	end
+
 	def test_sound
 		@call_box = CallBox.find(params[:id])
 		
