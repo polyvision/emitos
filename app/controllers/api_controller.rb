@@ -14,6 +14,12 @@ class ApiController < ApplicationController
 
 				call_box.play_sound_on_psd # lets play the sound
 			end
+		else
+			# no call box got found, so lets create it as unknown device
+			call_box = CallBox.new
+			call_box.mac = params[:id]
+			call_box.name = I18n.t('misc.unknown')
+			call_box.save
 		end
 
 		if call_box

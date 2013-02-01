@@ -22,3 +22,4 @@ gem 'carrierwave'
 gem "bootstrap-sass", ">= 2.2.2.0"
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'therubyracer'
