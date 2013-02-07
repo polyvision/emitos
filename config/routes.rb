@@ -6,6 +6,8 @@ Emitos::Application.routes.draw do
   match 'api/callbox/activate/:id' => 'api#callbox_activate'
   match 'api/callbox/deactivate/:id' => 'api#callbox_deactivate'
 
+  match 'market_setting' => 'market_setting#index'
+
   match 'soundfile' => 'soundfile#index'
   match 'soundfile/create' => 'soundfile#create'
   match 'soundfile/delete/:id' => 'soundfile#delete'

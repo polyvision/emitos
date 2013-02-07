@@ -2,6 +2,7 @@ de:
   nav:
     callbox: Rufstationen
     soundfile: Sound-Dateien
+    market_setting: Markeinstellungen
 
   call_box:
     sound_file: Sound-Datei
@@ -9,6 +10,13 @@ de:
     name: Name
     test_sound: Soundtest
     edit: Bearbeiten
+    call_one_type: Aufrufstyp Nr.1
+    call_two_type: Aufrufstyp Nr.2
+    call_three_type: Aufrufstyp Nr.3
+    call_one_notification_number: ext. Nummer Nr.1
+    call_two_notification_number: ext. Nummer Nr.2
+    call_three_notification_number: ext. Nummer Nr.3
+    max_calls: max.Aufrufe
 
   call_box_statistic:
     label:

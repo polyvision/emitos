@@ -1,0 +1,2 @@
+class MarketingCallController < ApplicationController
+end
