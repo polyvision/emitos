@@ -11,4 +11,10 @@ class SoundfileController < ApplicationController
 		@sound_file.save
 		redirect_to :action => 'index'
 	end
+
+	def delete
+		@soundfile = SoundFile.find(params[:id])		
+		@soundfile.destroy
+		redirect_to :action => 'index'
+	end
 end
