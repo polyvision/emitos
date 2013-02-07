@@ -10,6 +10,8 @@ class ApiController < ApplicationController
 				call_box_statistic.call_box_id = call_box.id
 				call_box_statistic.state = CallBoxStatistic::STATE_ACTIVE
 				call_box_statistic.save
+
+				call_box.play_sound_on_psd # ok, and now lets play the sound of the wicked ones ! ;)
 			end
 		end
 
