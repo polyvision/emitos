@@ -7,6 +7,11 @@ Emitos::Application.routes.draw do
   match 'api/callbox/deactivate/:id' => 'api#callbox_deactivate'
 
   match 'market_setting' => 'market_setting#index'
+  match 'market_setting/update' => 'market_setting#update'
+  match 'market_setting/update_market_setting_week_day/:id' => 'market_setting#update_market_setting_week_day'
+  match 'market_setting/market_setting_week_day/:id' => 'market_setting#market_setting_week_day'
+
+  match 'marketing_call' => 'marketing_call#index'
 
   match 'soundfile' => 'soundfile#index'
   match 'soundfile/create' => 'soundfile#create'

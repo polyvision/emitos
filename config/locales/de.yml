@@ -3,6 +3,7 @@ de:
     callbox: Rufstationen
     soundfile: Sound-Dateien
     market_setting: Markeinstellungen
+    marketing_calls: Durchsagen
 
   call_box:
     sound_file: Sound-Datei
@@ -22,6 +23,10 @@ de:
     label:
       active_ones: Aktive Rufsäulen
     num_call: Aufrufnr.
+
+  market_setting:
+    closed_at: Geschlossen ab
+    opened_at: Geöffnet ab
 
   actions:
     actions: Aktionen

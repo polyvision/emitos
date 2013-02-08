@@ -1,7 +1,3 @@
-<div class="page-header">
-  <h1><%= t('call_box.edit') %></h1>
-</div>
-
 <%= simple_form_for(@call_box, :url => {:action => 'update', :id => @call_box.id}, :html => {:class => 'form-horizontal'}) do |f| %>
     <%= f.input :name, :label => t('call_box.name') %>
     <%= f.input :mac, :label => t('call_box.mac') %>
