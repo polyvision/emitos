@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Durchsagen</h1>
+</div>
+
+<p><%= link_to('Neu', {:action => 'new'}, {:class => 'btn btn-primary'}) %></p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th><%= t('marketing_call.name') %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @marketing_calls.each do |call| %>
+      <tr>
+        <td><%= call.id %></td>
+        <td><%= call.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

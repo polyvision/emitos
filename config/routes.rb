@@ -12,6 +12,8 @@ Emitos::Application.routes.draw do
   match 'market_setting/market_setting_week_day/:id' => 'market_setting#market_setting_week_day'
 
   match 'marketing_call' => 'marketing_call#index'
+  match 'marketing_call/new' => 'marketing_call#new'
+  match 'marketing_call/create' => 'marketing_call#create'
 
   match 'soundfile' => 'soundfile#index'
   match 'soundfile/create' => 'soundfile#create'
