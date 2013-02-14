@@ -17,11 +17,18 @@ class MarketingCall < ActiveRecord::Base
   end
 
   def check_matrix(index)
-    json_data = JSON::parse(self.day_matrix)
-    return json_data[index]
+    if self.day_matrix
+    	json_data = JSON::parse(self.day_matrix)
+    	return json_data[index]
+    else
+     return false
+    end
   end
 
   def matrix_str
+     if !self.day_matrix
+	return ""
+     end
     json_data = JSON::parse(self.day_matrix)
 
     days = ""

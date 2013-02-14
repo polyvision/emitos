@@ -9,7 +9,7 @@ development:
   reconnect: true
   database: emitos
   pool: 5
-  username: root
-  password: #defaultpw
+  username: emitos
+  password: emit0s
   host: localhost
 
