@@ -13,4 +13,16 @@ class MarketingCallController < ApplicationController
     @marketing_call.save
     redirect_to :action => 'index'
   end
+
+  def edit
+    @marketing_call = MarketingCall.find(params[:id])
+  end
+
+  def update
+
+    @marketing_call = MarketingCall.find(params[:id])
+    @marketing_call.update_attributes(params[:marketing_call])
+    @marketing_call.update_matrix(params)
+    redirect_to :action => 'index'
+  end
 end

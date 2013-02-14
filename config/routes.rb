@@ -14,6 +14,9 @@ Emitos::Application.routes.draw do
   match 'marketing_call' => 'marketing_call#index'
   match 'marketing_call/new' => 'marketing_call#new'
   match 'marketing_call/create' => 'marketing_call#create'
+  match 'marketing_call/edit/:id' => 'marketing_call#edit'
+  match 'marketing_call/update/:id' => 'marketing_call#update'
+  match 'marketing_call/delete/:id' => 'marketing_call#delete'
 
   match 'soundfile' => 'soundfile#index'
   match 'soundfile/create' => 'soundfile#create'

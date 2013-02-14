@@ -28,6 +28,14 @@ de:
     closed_at: Geschlossen ab
     opened_at: Geöffnet ab
 
+  marketing_call:
+    name: Name
+    play_at: Uhrzeit
+    minutes_pro_call: Wartezeit zwischen Aufruf
+    use_matrix: Tagesmatrix verwenden
+    hints:
+      minutes_pro_call: 0 eintragen damit Uhrzeit verwendet wird
+
   actions:
     actions: Aktionen
     create: erstellen
