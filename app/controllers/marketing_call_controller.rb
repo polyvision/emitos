@@ -10,6 +10,7 @@ class MarketingCallController < ApplicationController
 
   def create
     @marketing_call = MarketingCall.new(params[:marketing_call])
+    @marketing_call.update_matrix(params)
     @marketing_call.save
     redirect_to :action => 'index'
   end
