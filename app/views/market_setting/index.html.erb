@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>Markteinstellungen</h1>
+</div>
+
+
+<%= form_tag({:action => 'update'},{:class => "form-horizontal", :remote => true}) do %>
+  <fieldset>
+    <legend>Aufrufeinstellungen</legend>
+
+
+    <div class="control-group">
+      <label class="checkbox">
+        <input type="checkbox" value="1" name="market_call_active" <%= "checked" if Setting.get_val("MARKET_SETTING_MARKET_CALLS_ACTIVE").to_i == 1%>>
+        Geschäftsdurchsagen aktiv
+      </label>
+    </div>
+
+    <div class="control-group">
+      <label class="checkbox">
+        <input type="checkbox" value="1" name="marketing_calls_active" <%= "checked" if Setting.get_val("MARKET_SETTING_MARKETING_CALLS_ACTIVE").to_i == 1%>>
+        Werbedurchsagen aktiv
+      </label>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn">speichern</button>
+      </div>
+    </div>
+
+  </fieldset>
+<% end %>
+
+<div id="market_setting_week_day">
+    <%=  render :partial => 'market_setting_week_day',:locals => {:market_setting => @market_setting} %>
+</div>

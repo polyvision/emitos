@@ -6,6 +6,18 @@ Emitos::Application.routes.draw do
   match 'api/callbox/activate/:id' => 'api#callbox_activate'
   match 'api/callbox/deactivate/:id' => 'api#callbox_deactivate'
 
+  match 'market_setting' => 'market_setting#index'
+  match 'market_setting/update' => 'market_setting#update'
+  match 'market_setting/update_market_setting_week_day/:id' => 'market_setting#update_market_setting_week_day'
+  match 'market_setting/market_setting_week_day/:id' => 'market_setting#market_setting_week_day'
+
+  match 'marketing_call' => 'marketing_call#index'
+  match 'marketing_call/new' => 'marketing_call#new'
+  match 'marketing_call/create' => 'marketing_call#create'
+  match 'marketing_call/edit/:id' => 'marketing_call#edit'
+  match 'marketing_call/update/:id' => 'marketing_call#update'
+  match 'marketing_call/delete/:id' => 'marketing_call#delete'
+
   match 'soundfile' => 'soundfile#index'
   match 'soundfile/create' => 'soundfile#create'
   match 'soundfile/delete/:id' => 'soundfile#delete'

@@ -1,10 +1,18 @@
-<div class="page-header">
-	<h1><%= t('call_box.edit') %></h1>
-</div>
+<%= simple_form_for(@call_box, :url => {:action => 'update', :id => @call_box.id}, :html => {:class => 'form-horizontal'}) do |f| %>
+    <%= f.input :name, :label => t('call_box.name') %>
+    <%= f.input :mac, :label => t('call_box.mac') %>
+    <%= f.input :max_calls, :label => t('call_box.max_calls') %>
+    <%= f.association :sound_file, :include_blank => false, :label => t('call_box.sound_file') %>
+    <%= f.association :jingle_file, :include_blank => false, :label => t('call_box.jingle_file') %>
 
-<%= simple_form_for(@call_box,:url =>{:action => 'update',:id => @call_box.id}, :html => {:class => 'form-horizontal' }) do |f| %>
-  <%= f.input :name,:label => t('call_box.name') %>
-  <%= f.input :mac,:label => t('call_box.mac') %>
-  <%= f.association :sound_file,:include_blank => false,:label => t('call_box.sound_file') %>
-  <%= f.button :submit,t('actions.update'), :input_html => { :class => 'btn btn-primary'}  %>
+    <%= f.input :call_one_type, :label => t('call_box.call_one_type'), :collection => CallBox::form_type_collection(), :include_blank => false %>
+    <%= f.input :call_one_notification_number, :label => t('call_box.call_one_notification_number') %>
+
+    <%= f.input :call_two_type, :label => t('call_box.call_two_type'), :collection => CallBox::form_type_collection(), :include_blank => false %>
+    <%= f.input :call_two_notification_number, :label => t('call_box.call_two_notification_number') %>
+
+    <%= f.input :call_three_type, :label => t('call_box.call_three_type'), :collection => CallBox::form_type_collection(), :include_blank => false %>
+    <%= f.input :call_three_notification_number, :label => t('call_box.call_three_notification_number') %>
+
+    <%= f.button :submit, t('actions.update'), :input_html => {:class => 'btn btn-primary'} %>
 <% end %>

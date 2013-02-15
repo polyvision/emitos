@@ -1,0 +1,2 @@
+module MarketSettingHelper
+end

@@ -2,6 +2,8 @@ de:
   nav:
     callbox: Rufstationen
     soundfile: Sound-Dateien
+    market_setting: Markeinstellungen
+    marketing_calls: Durchsagen
 
   call_box:
     sound_file: Sound-Datei
@@ -9,11 +11,30 @@ de:
     name: Name
     test_sound: Soundtest
     edit: Bearbeiten
+    call_one_type: Aufrufstyp Nr.1
+    call_two_type: Aufrufstyp Nr.2
+    call_three_type: Aufrufstyp Nr.3
+    call_one_notification_number: ext. Nummer Nr.1
+    call_two_notification_number: ext. Nummer Nr.2
+    call_three_notification_number: ext. Nummer Nr.3
+    max_calls: max.Aufrufe
 
   call_box_statistic:
     label:
       active_ones: Aktive Rufsäulen
     num_call: Aufrufnr.
+
+  market_setting:
+    closed_at: Geschlossen ab
+    opened_at: Geöffnet ab
+
+  marketing_call:
+    name: Name
+    play_at: Uhrzeit
+    minutes_pro_call: Wartezeit zwischen Aufruf
+    use_matrix: Tagesmatrix verwenden
+    hints:
+      minutes_pro_call: 0 eintragen damit Uhrzeit verwendet wird
 
   actions:
     actions: Aktionen

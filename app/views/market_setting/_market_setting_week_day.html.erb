@@ -1,0 +1,43 @@
+<%= simple_form_for(market_setting, :url => {:action => 'update_market_setting_week_day', :id => @market_setting.id}, :html => {:class => 'form-horizontal', :remote => true}) do |f| %>
+    <fieldset>
+      <legend>Öffnungs- und Schliessungszeiten</legend>
+
+
+      <div class="control-group">
+        <label class="control-label">Wochentag:</label>
+
+        <div class="controls">
+          <select id="week_day_selector">
+            <% MarketSetting.all.each do |ms| %>
+                <% if  market_setting.id == ms.id %>
+                    <option value="<%= ms.id %>" selected><%= ms.day_str %></option>
+                <% else %>
+                    <option value="<%= ms.id %>"><%= ms.day_str %></option>
+                <% end %>
+
+            <% end %>
+          </select>
+        </div>
+      </div>
+
+
+
+      <%= f.input :opened_at, :label => t('market_setting.opened_at') %>
+      <%= f.input :closed_at, :label => t('market_setting.closed_at') %>
+
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn">speichern</button>
+        </div>
+      </div>
+
+    </fieldset>
+<% end %>
+
+<script type="text/javascript">
+    $("#week_day_selector").change(function () {
+        $.get('market_setting/market_setting_week_day/' + $(this).val(), function (data) {
+            $('#market_setting_week_day').html(data);
+        });
+    });
+</script>

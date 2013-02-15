@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228144952) do
+ActiveRecord::Schema.define(:version => 20130214131854) do
 
   create_table "call_box_statistics", :force => true do |t|
     t.datetime "created_at",                 :null => false
@@ -22,10 +22,37 @@ ActiveRecord::Schema.define(:version => 20121228144952) do
   end
 
   create_table "call_boxes", :force => true do |t|
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.string   "name"
     t.string   "mac"
+    t.integer  "sound_file_id"
+    t.integer  "call_one_type",                  :default => 0
+    t.string   "call_one_notification_number"
+    t.integer  "call_two_type",                  :default => 0
+    t.string   "call_two_notification_number"
+    t.integer  "call_three_type",                :default => 0
+    t.string   "call_three_notification_number"
+    t.integer  "jingle_file_id"
+    t.integer  "max_calls",                      :default => 3
+  end
+
+  create_table "market_settings", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "day"
+    t.time     "opened_at"
+    t.time     "closed_at"
+  end
+
+  create_table "marketing_calls", :force => true do |t|
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.text     "day_matrix"
+    t.boolean  "use_matrix"
+    t.integer  "minutes_pro_call"
+    t.string   "name"
+    t.time     "play_at"
     t.integer  "sound_file_id"
   end
 

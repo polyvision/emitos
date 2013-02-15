@@ -1,0 +1,30 @@
+<%= f.input :name, :label => t('marketing_call.name') %>
+<%= f.input :play_at, :label => t('marketing_call.play_at') %>
+<%= f.input :minutes_pro_call, :label => t('marketing_call.minutes_pro_call'),:hint => t('marketing_call.hints.minutes_pro_call') %>
+<%= f.input :use_matrix, :label => t('marketing_call.use_matrix') %>
+<%= f.association :sound_file, :include_blank => false, :label => t('call_box.sound_file') %>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Montag</th>
+    <th>Dienstag</th>
+    <th>Mittwoch</th>
+    <th>Donnerstag</th>
+    <th>Freitag</th>
+    <th>Samstag</th>
+    <th>Sonntag</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><input type="checkbox" name="matrix[1]" <%= "checked" if @marketing_call.check_matrix(1) %>></td>
+    <td><input type="checkbox" name="matrix[2]" <%= "checked" if @marketing_call.check_matrix(2) %>></td>
+    <td><input type="checkbox" name="matrix[3]" <%= "checked" if @marketing_call.check_matrix(3) %>></td>
+    <td><input type="checkbox" name="matrix[4]" <%= "checked" if @marketing_call.check_matrix(4) %>></td>
+    <td><input type="checkbox" name="matrix[5]" <%= "checked" if @marketing_call.check_matrix(5) %>></td>
+    <td><input type="checkbox" name="matrix[6]" <%= "checked" if @marketing_call.check_matrix(6) %>></td>
+    <td><input type="checkbox" name="matrix[0]" <%= "checked" if @marketing_call.check_matrix(0) %>></td>
+  </tr>
+  </tbody>
+</table>
