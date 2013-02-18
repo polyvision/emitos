@@ -53,6 +53,7 @@ class ApiController < ApplicationController
 
   def cycle
     CallBox::cycle()
+    MarketingCall::cycle()
     render :text => 'done'
   end
 end
