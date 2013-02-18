@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214131854) do
+ActiveRecord::Schema.define(:version => 20130218104201) do
 
   create_table "call_box_statistics", :force => true do |t|
     t.datetime "created_at",                 :null => false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20130214131854) do
     t.string   "name"
     t.time     "play_at"
     t.integer  "sound_file_id"
+    t.datetime "last_played_at"
   end
 
   create_table "roles", :force => true do |t|

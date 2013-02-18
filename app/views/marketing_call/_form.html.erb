@@ -2,7 +2,7 @@
 <%= f.input :play_at, :label => t('marketing_call.play_at') %>
 <%= f.input :minutes_pro_call, :label => t('marketing_call.minutes_pro_call'),:hint => t('marketing_call.hints.minutes_pro_call') %>
 <%= f.input :use_matrix, :label => t('marketing_call.use_matrix') %>
-<%= f.association :sound_file, :include_blank => false, :label => t('call_box.sound_file') %>
+<%= f.association :sound_file, :include_blank => false, :label => t('call_box.sound_file'),:collection => SoundFile.where("sound_group_id = 2 OR sound_group_id= 4") %>
 
 <table class="table table-striped">
   <thead>
