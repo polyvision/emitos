@@ -5,6 +5,7 @@ Emitos::Application.routes.draw do
 
   match 'api/callbox/activate/:id' => 'api#callbox_activate'
   match 'api/callbox/deactivate/:id' => 'api#callbox_deactivate'
+  match 'api/cycle' => 'api#cycle'
 
   match 'market_setting' => 'market_setting#index'
   match 'market_setting/update' => 'market_setting#update'
