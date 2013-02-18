@@ -24,11 +24,11 @@
         <td><%= call.name %></td>
         <td><%= call.sound_file %></td>
         <td><%= call.minutes_pro_call %></td>
-        <td><%= call.play_at %></td>
-        <td><%= call.use_matrix %></td>
+        <td><%= call.play_at.to_s(:time) %></td>
+        <td><%= boolean_icon_sprite(call.use_matrix).html_safe %></td>
         <td><%= call.matrix_str %></td>
         <td>
-          <%=  link_to(t('actions.edit'),{:action => 'edit',:id=> call.id},{:class => 'btn btn-primary'}) %>
+          <%=  render :partial => 'dropdown',:locals => {:mc => call} %>
         </td>
       </tr>
   <% end %>

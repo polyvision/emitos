@@ -2,8 +2,8 @@
     <%= f.input :name, :label => t('call_box.name') %>
     <%= f.input :mac, :label => t('call_box.mac') %>
     <%= f.input :max_calls, :label => t('call_box.max_calls') %>
-    <%= f.association :sound_file, :include_blank => false, :label => t('call_box.sound_file') %>
-    <%= f.association :jingle_file, :include_blank => false, :label => t('call_box.jingle_file') %>
+    <%= f.association :sound_file, :include_blank => false, :label => t('call_box.sound_file'), :collection => SoundFile.where(:sound_group_id => 1) %>
+    <%= f.association :jingle_file, :include_blank => false, :label => t('call_box.jingle_file'),:collection => SoundFile.where(:sound_group_id => 3) %>
 
     <%= f.input :call_one_type, :label => t('call_box.call_one_type'), :collection => CallBox::form_type_collection(), :include_blank => false %>
     <%= f.input :call_one_notification_number, :label => t('call_box.call_one_notification_number') %>

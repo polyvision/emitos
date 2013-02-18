@@ -36,11 +36,15 @@ de:
     hints:
       minutes_pro_call: 0 eintragen damit Uhrzeit verwendet wird
 
+  confirm:
+   delete: Möchten Sie diesen Eintrag wirklich löschen?
+
   actions:
     actions: Aktionen
     create: erstellen
     update: aktualisieren
     edit: bearbeiten
+    delete: löschen
   misc:
     created_at: erstellt am
     name: Name
