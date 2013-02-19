@@ -1,4 +1,6 @@
 class CallboxController < ApplicationController
+  before_filter :authenticate_user!
+
 	def index
 		@call_box_prototype = CallBox.new
 

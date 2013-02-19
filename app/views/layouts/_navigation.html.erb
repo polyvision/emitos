@@ -1,8 +1,8 @@
-<%= link_to "EMITOS", root_path, :class => 'brand' %>
+<%= link_to "EMITOSnet", root_path, :class => 'brand' %>
 <ul class="nav">
   <% if user_signed_in? %>
     <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+    <%= link_to t('actions.logout'), destroy_user_session_path, :method=>'delete' %>
     </li>
   <% else %>
     <li>
@@ -10,15 +10,19 @@
     </li>
   <% end %>
   <% if user_signed_in? %>
+      <!--
     <li>
-    <%= link_to 'Edit account', edit_user_registration_path %>
+     <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
+    -->
     <% if current_user.has_role? :admin %>
       <li>
       <%= link_to 'Admin', users_path %>
       </li>
     <% end %>
   <% end %>
+
+  <% if user_signed_in? %>
   <li>
     <%= link_to t('nav.soundfile'),{:action => 'index',:controller => '/soundfile'} %>
   </li>
@@ -37,4 +41,5 @@
   <li>
     <%= link_to t('nav.statistic'),{:action => 'index',:controller => '/statistic'} %>
   </li>
+<% end  %>
 </ul>
