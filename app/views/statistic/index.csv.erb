@@ -1,0 +1,4 @@
+Startdatum;Enddatum;Station;Durchsagen
+<% @stat_data.each do |entry| %>
+<%= @start_date %>;<%= @end_date %>;<%= entry['y'] %>,;<%= entry['a'] %>,;<%= entry['b'] %>,;<%= entry['c'] %>
+<% end %>

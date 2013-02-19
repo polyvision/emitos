@@ -4,6 +4,7 @@ de:
     soundfile: Sound-Dateien
     market_setting: Markeinstellungen
     marketing_calls: Durchsagen
+    statistic: Statistik
 
   call_box:
     sound_file: Sound-Datei
@@ -45,9 +46,30 @@ de:
     update: aktualisieren
     edit: bearbeiten
     delete: löschen
+    logout: Abmelden
+
   misc:
     created_at: erstellt am
     name: Name
     id: "#"
     mac: MAC-Adresse
     unknown: Unbekannt
+
+  devise:
+    sign_in: Anmelden
+    email: eMail
+    password: Passwort
+    password_confirmation: Passwort bestätigen
+    remember_me: Angemeldet bleiben
+    sign_up: Kostenlose Registrierung
+    forgot_your_password: Password vergessen?
+    register: registrieren
+    didnt_receive_confirmation_instructions: Keine Bestätitungs-eMail erhalten ?
+    resend_confirmation_instructions: Bestätigungs-eMail wieder verschicken
+    send_me_reset_password_instructions: eMail zum Passwort zurücksetzen anfordern
+    confirm_my_account: Zugang bestätigen
+    change_my_password: Mein Passwort ändern
+    change_your_password: Passwort ändern
+    change_password: Passwort ändern
+    new_password: Neues Passwort
+    confirm_your_new_password: Neues Passwort bestätigen

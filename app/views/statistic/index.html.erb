@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>Statistik</h1>
+</div>
+
+<div id="bar-example">
+
+</div>
+
+
+<%= form_tag({:action => 'index'},{:class => "form-inline"}) do %>
+    <label class="text">Startdatum: <input type="text" name="start_date" value="<%= @start_date %>" class="datepicker"></label>
+    <label class="text">Enddatum: <input type="text" name="end_date" value="<%= @end_date %>" class="datepicker"></label>
+    <%=  submit_tag(t('actions.update'),:class => 'btn btn-primary') %>
+<% end %>
+
+<%=  link_to("CSV #{@start_date} bis #{@end_date} abrufen",{:action => 'index', :format => 'csv',:start_date => @start_date, :end_date => @end_date},{:class => 'btn'}) %>
+
+<script type="text/javascript">
+
+    Morris.Bar({
+        element: 'bar-example',
+        data: <%= @stat_data.to_json.html_safe %>,
+        xkey: 'y',
+        ykeys: ['a', 'b','c'],
+        labels: ['1. Aufruf', '2. Aufruf', '3. Aufruf']
+    });
+
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        language: 'de'
+    });
+</script>

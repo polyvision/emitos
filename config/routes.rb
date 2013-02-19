@@ -23,6 +23,8 @@ Emitos::Application.routes.draw do
   match 'soundfile/create' => 'soundfile#create'
   match 'soundfile/delete/:id' => 'soundfile#delete'
 
+  match 'statistic' => 'statistic#index'
+
   match 'callbox' => 'callbox#index'
   match 'callbox/create' => 'callbox#create'
   match 'callbox/edit/:id' => 'callbox#edit'

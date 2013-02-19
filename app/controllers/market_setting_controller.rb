@@ -1,4 +1,6 @@
 class MarketSettingController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @market_setting = MarketSetting.where(:day => 0).first
   end

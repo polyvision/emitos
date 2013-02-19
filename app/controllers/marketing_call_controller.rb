@@ -1,4 +1,5 @@
 class MarketingCallController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @marketing_calls = MarketingCall.all

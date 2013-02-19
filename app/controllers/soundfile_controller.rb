@@ -1,4 +1,5 @@
 class SoundfileController < ApplicationController
+  before_filter :authenticate_user!
 
 	def index
 		@sound_file_prototype = SoundFile.new
