@@ -46,6 +46,7 @@ class CallBox < ActiveRecord::Base
   def notify_per_sms(num_call,send_to)
     msg = "#{num_call}. Aufruf #{self.name}"
     mobilant = PvMobilant::Api.new("5qYMWmf975212a0a9NHWsXa")
+    mobilant.sms_route = Setting.get_val("MOBILANT_ROUTE")
     response = mobilant.send_sms("EMITOS",send_to,msg)
 
     # logging the sms notification
