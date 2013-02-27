@@ -8,6 +8,7 @@ Emitos::Application.routes.draw do
   match 'api/cycle' => 'api#cycle'
 
   match 'system' => 'setting#index'
+  match 'system/update' => 'setting#update'
 
   match 'market_setting' => 'market_setting#index'
   match 'market_setting/update' => 'market_setting#update'

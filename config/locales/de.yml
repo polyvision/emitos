@@ -56,9 +56,13 @@ de:
     unknown: Unbekannt
     change_role: Rollen ändern
 
+  flash:
+    saved: Daten gespeichert
+
   user:
     username: Benutzername
     roles: Rollen
+    new: Neuen Benutzer anlegen
 
   devise:
     sign_in: Anmelden

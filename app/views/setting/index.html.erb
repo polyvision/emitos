@@ -1,3 +1,23 @@
 <div class="page-header">
   <h1>System</h1>
 </div>
+
+<%= form_tag({:action => 'update'}, {:class => 'form-horizontal'}) do %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>name</th>
+        <th>value</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @settings.each do |setting| %>
+          <tr>
+            <td><%= setting.name %></td>
+            <td><input type="text" name="setting[<%= setting.name %>]" value="<%= setting.value %>"></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%=  submit_tag(t('actions.update'),:class => 'btn btn-primary') %>
+<% end %>
