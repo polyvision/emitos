@@ -12,7 +12,7 @@ class ApiController < ApplicationController
         call_box_statistic.num_call = 1
         call_box_statistic.save
 
-        call_box.play_sound_on_psd # ok, and now lets play the sound of the wicked ones ! ;)
+        call_box.notify # ok, and now lets play the sound of the wicked ones ! ;)
       end
     else
       # no call box got found, so lets create it as unknown device

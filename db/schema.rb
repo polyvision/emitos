@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218104201) do
+ActiveRecord::Schema.define(:version => 20130226145535) do
+
+  create_table "call_box_notifications", :force => true do |t|
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "msg"
+    t.string   "send_to"
+    t.integer  "response_code"
+    t.integer  "response_msg_id"
+    t.float    "response_cost"
+    t.integer  "sms_count"
+    t.string   "sms_route"
+  end
 
   create_table "call_box_statistics", :force => true do |t|
     t.datetime "created_at",                 :null => false

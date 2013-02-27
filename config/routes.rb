@@ -7,6 +7,8 @@ Emitos::Application.routes.draw do
   match 'api/callbox/deactivate/:id' => 'api#callbox_deactivate'
   match 'api/cycle' => 'api#cycle'
 
+  match 'system' => 'setting#index'
+
   match 'market_setting' => 'market_setting#index'
   match 'market_setting/update' => 'market_setting#update'
   match 'market_setting/update_market_setting_week_day/:id' => 'market_setting#update_market_setting_week_day'
@@ -31,9 +33,15 @@ Emitos::Application.routes.draw do
   match 'callbox/update/:id' => 'callbox#update'
   match 'callbox/test_sound/:id' => 'callbox#test_sound', :format => :js
 
+  match 'users' => 'users#index'
+  match 'users/new' => 'users#new'
+  match 'users/create' => 'users#create'
+  match 'users/edit/:id' => 'users#edit'
+  match 'users/update/:id' => 'users#update'
+  match 'users/delete/:id' => 'users#destroy'
+
   match 'home/active_call_boxes' => 'home#active_call_boxes'
 
   root :to => "home#index"
   devise_for :users
-  resources :users
 end

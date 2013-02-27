@@ -54,6 +54,11 @@ de:
     id: "#"
     mac: MAC-Adresse
     unknown: Unbekannt
+    change_role: Rollen ändern
+
+  user:
+    username: Benutzername
+    roles: Rollen
 
   devise:
     sign_in: Anmelden
