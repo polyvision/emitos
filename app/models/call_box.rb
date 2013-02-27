@@ -13,10 +13,51 @@ class CallBox < ActiveRecord::Base
   belongs_to :jingle_file, :class_name => 'SoundFile'
 
   def self.form_type_collection
-    t = Array.new
-    t[CallBox::TYPE_DEFAULT] = 'Standard'
-    t[CallBox::TYPE_NOTIFICATION] = 'SMS / VoiceMail'
+    t = Hash.new
+    t['Standard'] = CallBox::TYPE_DEFAULT
+    t['SMS / VoiceMail'] = CallBox::TYPE_NOTIFICATION
     return t
+  end
+
+  def notify(num_call = 1)
+
+    # first call
+    if num_call == 1 && self.call_one_type == CallBox::TYPE_NOTIFICATION # SMS
+      self.notify_per_sms(num_call,self.call_one_notification_number)
+    else
+      self.play_sound_on_psd(num_call)
+    end
+
+    # 2nd call
+    if num_call == 2 && self.call_two_type == CallBox::TYPE_NOTIFICATION # SMS
+      self.notify_per_sms(num_call,self.call_two_notification_number)
+    else
+      self.play_sound_on_psd(num_call)
+    end
+
+    # 3rd call
+    if num_call == 3 && self.call_three_type == CallBox::TYPE_NOTIFICATION # SMS
+      self.notify_per_sms(num_call,self.call_three_notification_number)
+    else
+      self.play_sound_on_psd(num_call)
+    end
+  end
+
+  def notify_per_sms(num_call,send_to)
+    msg = "#{num_call}. Aufruf #{self.name}"
+    mobilant = PvMobilant::Api.new("5qYMWmf975212a0a9NHWsXa")
+    response = mobilant.send_sms("EMITOS",send_to,msg)
+
+    # logging the sms notification
+    cbn = CallBoxNotification.new
+    cbn.msg = msg
+    cbn.send_to = send_to
+    cbn.response_code = response['response_code']
+    cbn.response_msg_id = response['response_msg_id']
+    cbn.response_cost = response['response_cost']
+    cbn.sms_count = response['response_sms_count']
+    cbn.sms_route = mobilant.sms_route
+    cbn.save
   end
 
   def play_sound_on_psd(num_call = 1)
@@ -34,7 +75,7 @@ class CallBox < ActiveRecord::Base
         s.send "PLAY #{self.sound_file.file.current_path}#", 0
       }
     rescue Exception => ex
-      raise ex
+      ##
     end
   end
 
@@ -56,7 +97,7 @@ class CallBox < ActiveRecord::Base
         else
           cbs.num_call +=1
           cbs.save
-          cbs.call_box.play_sound_on_psd(cbs.num_call) # playing another sound
+          cbs.call_box.notify(cbs.num_call) # playing another sound
         end
       end # last_call_time
     end # end of call_box_statistic.each
