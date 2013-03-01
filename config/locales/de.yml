@@ -6,6 +6,9 @@ de:
     marketing_calls: Durchsagen
     statistic: Statistik
 
+  sound_file:
+    new: Sounddatei hochladen
+
   call_box:
     sound_file: Sound-Datei
     mac: MAC-Adresse

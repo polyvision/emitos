@@ -1,36 +1,49 @@
-<div class="page-header">
+<div id="content-header">
   <h1>Durchsagen</h1>
 </div>
 
-<p><%= link_to('Neu', {:action => 'new'}, {:class => 'btn btn-primary'}) %></p>
+<div id="breadcrumb">
+  <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Dashboard</a>
+  <a href="#" class="current">Durchsagen</a>
+</div>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>#</th>
-    <th><%= t('marketing_call.name') %></th>
-    <th><%= t('marketing_call.sound_file') %></th>
-    <th><%= t('marketing_call.minutes_pro_call') %></th>
-    <th><%= t('marketing_call.play_at') %></th>
-    <th><%= t('marketing_call.use_matrix') %></th>
-    <th><%= t('marketing_call.matrix') %></th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @marketing_calls.each do |call| %>
-      <tr>
-        <td><%= call.id %></td>
-        <td><%= call.name %></td>
-        <td><%= call.sound_file %></td>
-        <td><%= call.minutes_pro_call %></td>
-        <td><%= call.play_at.to_s(:time) %></td>
-        <td><%= boolean_icon_sprite(call.use_matrix).html_safe %></td>
-        <td><%= call.matrix_str %></td>
-        <td>
-          <%=  render :partial => 'dropdown',:locals => {:mc => call} %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+
+  <div class="row-fluid">
+    <div class="span12">
+
+      <p><%= link_to('Neu', {:action => 'new'}, {:class => 'btn btn-primary'}) %></p>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t('marketing_call.name') %></th>
+          <th><%= t('marketing_call.sound_file') %></th>
+          <th><%= t('marketing_call.minutes_pro_call') %></th>
+          <th><%= t('marketing_call.play_at') %></th>
+          <th><%= t('marketing_call.use_matrix') %></th>
+          <th><%= t('marketing_call.matrix') %></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @marketing_calls.each do |call| %>
+            <tr>
+              <td><%= call.id %></td>
+              <td><%= call.name %></td>
+              <td><%= call.sound_file %></td>
+              <td><%= call.minutes_pro_call %></td>
+              <td><%= call.play_at.to_s(:time) %></td>
+              <td><%= boolean_icon_sprite(call.use_matrix).html_safe %></td>
+              <td><%= call.matrix_str %></td>
+              <td>
+                <%= render :partial => 'dropdown', :locals => {:mc => call} %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

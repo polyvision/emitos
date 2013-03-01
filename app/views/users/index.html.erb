@@ -1,31 +1,44 @@
-<h3><%= t('nav.admin') %></h3>
+<div id="content-header">
+  <h1>Benutzer</h1>
+</div>
 
-<div class="span8">
-  <p>
-    <%=  link_to(t('user.new'),{:action => 'new'},{:class => 'btn btn-primary'}) %>
-  </p>
+<div id="breadcrumb">
+  <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Dashboard</a>
+  <a href="#" class="current">Benutzer</a>
+</div>
 
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th><%=  t('user.email') %></th>
-      <th><%=  t('user.roles') %></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.email %></td>
-      <td><%= user.roles.to_sentence %></td>
-      <td>
-        <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button"><%=  t('misc.change_role') %></a>
-        <%= render user %>
-      </td>
-      <td><%= link_to("Delete user", {:action => 'destroy', :id => user.id}, :data => { :confirm => "Are you sure?" }, :class => 'btn btn-mini') unless user == current_user %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+
+  <div class="row-fluid">
+    <div class="span12">
+
+      <p>
+        <%= link_to(t('user.new'), {:action => 'new'}, {:class => 'btn btn-primary'}) %>
+      </p>
+
+      <table class="table table-condensed">
+        <thead>
+        <tr>
+          <th><%= t('user.email') %></th>
+          <th><%= t('user.roles') %></th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= user.roles.to_sentence %></td>
+              <td>
+                <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button"><%= t('misc.change_role') %></a>
+                <%= render user %>
+              </td>
+              <td><%= link_to("Delete user", {:action => 'destroy', :id => user.id}, :data => {:confirm => "Are you sure?"}, :class => 'btn btn-mini') unless user == current_user %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

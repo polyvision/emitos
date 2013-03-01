@@ -1,8 +1,20 @@
-<div class="page-header">
+<div id="content-header">
   <h1>Durchsage bearbeiten</h1>
 </div>
 
-<%= simple_form_for(@marketing_call, :url => {:action => 'update',:id => @marketing_call.id}, :html => {:class => 'form-horizontal'}) do |f| %>
-    <%= render :partial => 'form', :locals => {:f => f} %>
-    <%= f.button :submit, t('actions.update'), :input_html => {:class => 'btn btn-primary'} %>
-<% end %>
+<div id="breadcrumb">
+  <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Dashboard</a>
+  <a href="#" class="current">Durchsagen</a>
+</div>
+
+<div class="container-fluid">
+
+  <div class="row-fluid">
+    <div class="span12">
+      <%= simple_form_for(@marketing_call, :url => {:action => 'update', :id => @marketing_call.id}, :html => {:class => 'form-horizontal'}) do |f| %>
+          <%= render :partial => 'form', :locals => {:f => f} %>
+          <%= f.button :submit, t('actions.update'), :input_html => {:class => 'btn btn-primary'} %>
+      <% end %>
+    </div>
+  </div>
+</div>

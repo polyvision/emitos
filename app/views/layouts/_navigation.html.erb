@@ -1,62 +1,60 @@
-<%= link_to "EMITOSnet", root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if user_signed_in? %>
-      <li>
-        <%= link_to t('actions.logout'), destroy_user_session_path, :method => 'delete' %>
-      </li>
-  <% else %>
-      <li>
-        <%= link_to 'Login', new_user_session_path %>
-      </li>
-  <% end %>
-  <% if user_signed_in? %>
-      <!--
+<div id="sidebar">
+  <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <% if !user_signed_in? %>
+        <li>
+          <%= link_to 'Login', new_user_session_path %>
+        </li>
+    <% end %>
+    <% if user_signed_in? %>
+        <!--
     <li>
      <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
     -->
-      <% if current_user.has_role? :admin %>
-          <li>
-            <%= link_to 'Benutzer', users_path %>
-          </li>
-      <% end %>
-  <% end %>
+        <% if current_user.has_role? :admin %>
+            <li>
+              <%= link_to("<i class=\"icon icon-user\"></i> #{t('nav.users')}".html_safe, users_path) %>
+            </li>
+        <% end %>
+    <% end %>
 
-  <% if user_signed_in? %>
-      <% if current_user.has_role?('Admin') || current_user.has_role?('SoundFiles') %>
-          <li>
-            <%= link_to t('nav.soundfile'), {:action => 'index', :controller => '/soundfile'} %>
-          </li>
-      <% end %>
+    <% if user_signed_in? %>
+        <% if current_user.has_role?('Admin') || current_user.has_role?('SoundFiles') %>
+            <li class="active">
+              <%= link_to("<i class=\"icon icon-volume-up\"></i> #{t('nav.soundfile')}".html_safe, {:action => 'index', :controller => '/soundfile'}) %>
+            </li>
+        <% end %>
 
-      <% if current_user.has_role?('Admin') || current_user.has_role?('CallBox') %>
-          <li>
-            <%= link_to t('nav.callbox'), {:action => 'index', :controller => '/callbox'} %>
-          </li>
-      <% end %>
+        <% if current_user.has_role?('Admin') || current_user.has_role?('CallBox') %>
+            <li>
+              <%= link_to("<i class=\"icon icon-tasks\"></i> #{t('nav.callbox')}".html_safe, {:action => 'index', :controller => '/callbox'}) %>
+            </li>
+        <% end %>
 
-      <% if current_user.has_role?('Admin') || current_user.has_role?('MarketSettings') %>
-          <li>
-            <%= link_to t('nav.market_setting'), {:action => 'index', :controller => '/market_setting'} %>
-          </li>
-      <% end %>
+        <% if current_user.has_role?('Admin') || current_user.has_role?('MarketSettings') %>
+            <li>
+              <%= link_to("<i class=\"icon icon-list\"></i> #{t('nav.market_setting')}".html_safe, {:action => 'index', :controller => '/market_setting'}) %>
+            </li>
+        <% end %>
 
-      <% if current_user.has_role?('Admin') || current_user.has_role?('MarketCalls') %>
-          <li>
-            <%= link_to t('nav.marketing_calls'), {:action => 'index', :controller => '/marketing_call'} %>
-          </li>
-      <% end %>
+        <% if current_user.has_role?('Admin') || current_user.has_role?('MarketCalls') %>
+            <li>
+              <%= link_to("<i class=\"icon icon-calendar\"></i> #{t('nav.marketing_calls')}".html_safe, {:action => 'index', :controller => '/marketing_call'}) %>
+            </li>
+        <% end %>
 
-      <% if current_user.has_role?('Admin') || current_user.has_role?('Statistic') %>
-          <li>
-            <%= link_to t('nav.statistic'), {:action => 'index', :controller => '/statistic'} %>
-          </li>
-      <% end %>
+        <% if current_user.has_role?('Admin') || current_user.has_role?('Statistic') %>
+            <li>
+              <%= link_to("<i class=\"icon icon-signal\"></i> #{t('nav.statistic')}".html_safe, {:action => 'index', :controller => '/statistic'}) %>
+            </li>
+        <% end %>
 
-      <% if current_user.has_role?('Admin') %>
-          <li>
-            <%= link_to t('System'), {:action => 'index', :controller => '/setting'} %>
-          </li>
-      <% end %>
-  <% end %>
-</ul>
+        <% if current_user.has_role?('Admin') %>
+            <li>
+              <%= link_to("<i class=\"icon icon-leaf\"></i> #{t('nav.system')}".html_safe, {:action => 'index', :controller => '/setting'}) %>
+            </li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
