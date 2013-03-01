@@ -1,5 +1,12 @@
 module ApplicationHelper
 
+  def active_menu_state(name)
+    if @current_controller == name
+      return "class=\"active\"".html_safe
+    end
+    return
+  end
+
   def boolean_icon_sprite(state)
     if state
       return '<i class="icon-ok"></i>'

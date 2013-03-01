@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <title><%= content_for?(:title) ? yield(:title) : "EMITOSnet" %></title>
-		<meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		
-
-	    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Emitos" %>">
-    
-	    <%= javascript_include_tag "jquery" %>
-	    <%= javascript_include_tag "jquery_ujs" %>
-	    <%= javascript_include_tag "bootstrap" %>
-	    <%= javascript_include_tag "bootstrap-datepicker" %>
-	    <%= javascript_include_tag "bootstrap-datepicker.de.js" %>
-	    <%= javascript_include_tag "jquery.fancybox" %>
-	    <%= javascript_include_tag "raphael-min.js" %>
-	    <%= javascript_include_tag "morris.min.js" %>
-	    <%= stylesheet_link_tag "bootstrap" %>
-		<%= stylesheet_link_tag "unicorn.main" %>
-		<link rel="stylesheet" href="/assets/unicorn.grey.css" class="skin-color" />
-	    <%= stylesheet_link_tag "application" %>
-	    <%= stylesheet_link_tag "jquery.fancybox" %>
-	    <%= stylesheet_link_tag "morris.css" %>
-	    <%= stylesheet_link_tag "datepicker.css" %>
-	    <%= csrf_meta_tags %>
-	    <%= yield(:head) %>
-	</head>
-	<body>
-		
-		
-		<div id="header">
-			<h1><a href="/">Unicorn Admin</a></h1>		
-		</div>
-		
-		<div id="user-nav" class="navbar navbar-inverse">
-            <ul class="nav btn-group">
-              <% if user_signed_in? %>
-                  <li class="btn btn-inverse">
-                    <%= link_to("<i class=\"icon icon-share-alt\"></i> <span class=\"text\">#{t('actions.logout')}</span>".html_safe, destroy_user_session_path, :method => 'delete') %>
-                  </li>
-
-              <% end %>
-            </ul>
-        </div>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "EMITOSnet" %></title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
-        <%= render 'layouts/navigation' %>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Emitos" %>">
 
-		<div id="content">
-            <%= render 'layouts/messages' %>
-            <%= yield %>
-		</div>
-		
-            <script src="assets/unicorn.js"></script>
-            <script src="assets/unicorn.dashboard.js"></script>
-	</body>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery_ujs" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= javascript_include_tag "bootstrap-datepicker" %>
+  <%= javascript_include_tag "bootstrap-datepicker.de.js" %>
+  <%= javascript_include_tag "jquery.fancybox" %>
+  <%= javascript_include_tag "raphael-min.js" %>
+  <%= javascript_include_tag "morris.min.js" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= stylesheet_link_tag "unicorn.main" %>
+  <link rel="stylesheet" href="/assets/unicorn.grey.css" class="skin-color"/>
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "jquery.fancybox" %>
+  <%= stylesheet_link_tag "morris.css" %>
+  <%= stylesheet_link_tag "datepicker.css" %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+</head>
+<body>
+
+
+<div id="header">
+  <h1><a href="/">Unicorn Admin</a></h1>
+</div>
+
+
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav btn-group">
+    <% if user_signed_in? %>
+        <li class="btn btn-inverse">
+          <%= link_to("<i class=\"icon icon-share-alt\"></i> <span class=\"text\">#{t('actions.logout')}</span>".html_safe, destroy_user_session_path, :method => 'delete') %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<%= render 'layouts/navigation' %>
+
+<div id="content">
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+</div>
+
+<script src="assets/unicorn.js"></script>
+<script src="assets/unicorn.dashboard.js"></script>
+</body>
 </html>

@@ -21,37 +21,37 @@
 
     <% if user_signed_in? %>
         <% if current_user.has_role?('Admin') || current_user.has_role?('SoundFiles') %>
-            <li class="active">
+            <li <%= active_menu_state("soundfile") %> >
               <%= link_to("<i class=\"icon icon-volume-up\"></i> #{t('nav.soundfile')}".html_safe, {:action => 'index', :controller => '/soundfile'}) %>
             </li>
         <% end %>
 
         <% if current_user.has_role?('Admin') || current_user.has_role?('CallBox') %>
-            <li>
+            <li <%= active_menu_state("callbox") %> >
               <%= link_to("<i class=\"icon icon-tasks\"></i> #{t('nav.callbox')}".html_safe, {:action => 'index', :controller => '/callbox'}) %>
             </li>
         <% end %>
 
         <% if current_user.has_role?('Admin') || current_user.has_role?('MarketSettings') %>
-            <li>
+            <li <%= active_menu_state("market_setting") %> >
               <%= link_to("<i class=\"icon icon-list\"></i> #{t('nav.market_setting')}".html_safe, {:action => 'index', :controller => '/market_setting'}) %>
             </li>
         <% end %>
 
         <% if current_user.has_role?('Admin') || current_user.has_role?('MarketCalls') %>
-            <li>
+            <li <%= active_menu_state("marketing_call") %> >
               <%= link_to("<i class=\"icon icon-calendar\"></i> #{t('nav.marketing_calls')}".html_safe, {:action => 'index', :controller => '/marketing_call'}) %>
             </li>
         <% end %>
 
         <% if current_user.has_role?('Admin') || current_user.has_role?('Statistic') %>
-            <li>
+            <li <%= active_menu_state("statistic") %> >
               <%= link_to("<i class=\"icon icon-signal\"></i> #{t('nav.statistic')}".html_safe, {:action => 'index', :controller => '/statistic'}) %>
             </li>
         <% end %>
 
         <% if current_user.has_role?('Admin') %>
-            <li>
+            <li <%= active_menu_state("setting") %> >
               <%= link_to("<i class=\"icon icon-leaf\"></i> #{t('nav.system')}".html_safe, {:action => 'index', :controller => '/setting'}) %>
             </li>
         <% end %>
