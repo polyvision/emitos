@@ -1,47 +1,86 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "EMITOSnet" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Emitos" %>">
+<html lang="en">
+	<head>
+	    <title><%= content_for?(:title) ? yield(:title) : "EMITOSnet" %></title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		
+
+	    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Emitos" %>">
     
-    <%= javascript_include_tag "jquery" %>
-    <%= javascript_include_tag "jquery_ujs" %>
-    <%= javascript_include_tag "bootstrap" %>
-    <%= javascript_include_tag "bootstrap-datepicker" %>
-    <%= javascript_include_tag "bootstrap-datepicker.de.js" %>
-    <%= javascript_include_tag "jquery.fancybox" %>
-    <%= javascript_include_tag "raphael-min.js" %>
-    <%= javascript_include_tag "morris.min.js" %>
-    <%= stylesheet_link_tag "bootstrap" %>
-    <%= stylesheet_link_tag "application" %>
-    <%= stylesheet_link_tag "jquery.fancybox" %>
-    <%= stylesheet_link_tag "morris.css" %>
-    <%= stylesheet_link_tag "datepicker.css" %>
-    <%= csrf_meta_tags %>
-    <%= yield(:head) %>
-  </head>
-  <body class="<%= controller_name %> <%= action_name %>">
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
+	    <%= javascript_include_tag "jquery" %>
+	    <%= javascript_include_tag "jquery_ujs" %>
+	    <%= javascript_include_tag "bootstrap" %>
+	    <%= javascript_include_tag "bootstrap-datepicker" %>
+	    <%= javascript_include_tag "bootstrap-datepicker.de.js" %>
+	    <%= javascript_include_tag "jquery.fancybox" %>
+	    <%= javascript_include_tag "raphael-min.js" %>
+	    <%= javascript_include_tag "morris.min.js" %>
+	    <%= stylesheet_link_tag "bootstrap" %>
+		<%= stylesheet_link_tag "unicorn.main" %>
+		<link rel="stylesheet" href="/assets/unicorn.grey.css" class="skin-color" />
+	    <%= stylesheet_link_tag "application" %>
+	    <%= stylesheet_link_tag "jquery.fancybox" %>
+	    <%= stylesheet_link_tag "morris.css" %>
+	    <%= stylesheet_link_tag "datepicker.css" %>
+	    <%= csrf_meta_tags %>
+	    <%= yield(:head) %>
+	</head>
+	<body>
+		
+		
+		<div id="header">
+			<h1><a href="/">Unicorn Admin</a></h1>		
+		</div>
+		
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+            </ul>
         </div>
-      </nav>
-    </header>
-    <div id="main" role="main">
-      <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
-  </body>
+            
+		<div id="sidebar">
+			<a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+			<ul>
+				<li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>Form elements</span> <span class="label">3</span></a>
+					<ul>
+						<li><a href="form-common.html">Common elements</a></li>
+						<li><a href="form-validation.html">Validation</a></li>
+						<li><a href="form-wizard.html">Wizard</a></li>
+					</ul>
+				</li>
+				<li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
+				<li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Interface elements</span></a></li>
+				<li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
+				<li><a href="grid.html"><i class="icon icon-th-list"></i> <span>Grid Layout</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-file"></i> <span>Sample pages</span> <span class="label">4</span></a>
+					<ul>
+						<li><a href="invoice.html">Invoice</a></li>
+						<li><a href="chat.html">Support chat</a></li>
+						<li><a href="calendar.html">Calendar</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a>
+				</li>
+				<li>
+					<a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div id="content">
+            <%= render 'layouts/messages' %>
+            <%= yield %>
+		</div>
+		
+            <script src="assets/unicorn.js"></script>
+            <script src="assets/unicorn.dashboard.js"></script>
+	</body>
 </html>
