@@ -19,33 +19,38 @@ class CallBox < ActiveRecord::Base
     return t
   end
 
-  def notify(num_call = 1)
-
+  def notify(num_call = 1)    
     # first call
     if num_call == 1 && self.call_one_type == CallBox::TYPE_NOTIFICATION # SMS
       self.notify_per_sms(num_call,self.call_one_notification_number)
-    else
+      return
+    elsif num_call == 1
       self.play_sound_on_psd(num_call)
+      return
     end
 
     # 2nd call
     if num_call == 2 && self.call_two_type == CallBox::TYPE_NOTIFICATION # SMS
       self.notify_per_sms(num_call,self.call_two_notification_number)
-    else
+      return
+    elsif num_call == 2
       self.play_sound_on_psd(num_call)
+      return
     end
 
     # 3rd call
     if num_call == 3 && self.call_three_type == CallBox::TYPE_NOTIFICATION # SMS
       self.notify_per_sms(num_call,self.call_three_notification_number)
-    else
+      return
+    elsif num_call == 3
       self.play_sound_on_psd(num_call)
+      return
     end
   end
 
   def notify_per_sms(num_call,send_to)
     msg = "#{num_call}. Aufruf #{self.name}"
-    mobilant = PvMobilant::Api.new("5qYMWmf975212a0a9NHWsXa")
+    mobilant = PvMobilant::Api.new(Setting.get_val("MOBILANT_API_KEY"))
     mobilant.sms_route = Setting.get_val("MOBILANT_ROUTE")
     response = mobilant.send_sms("EMITOS",send_to,msg)
 
@@ -63,7 +68,7 @@ class CallBox < ActiveRecord::Base
 
   def play_sound_on_psd(num_call = 1)
     begin
-
+    
       if self.jingle_file # playing the jingle
         for t in 0..num_call-1 do
           TCPSocket.open(Setting.get_val("ESD_HOST"), Setting.get_val("PSD_PORT").to_i) { |s|
@@ -81,7 +86,7 @@ class CallBox < ActiveRecord::Base
   end
 
   def max_time_between_call
-    return 30 # default 30 sekunden zwischen jedem aufruf
+    return Setting.get_val("TIME_BETWEEN_CALLBOX_NOTIFICATION").to_i # default 30 sekunden zwischen jedem aufruf
   end
 
 =begin
