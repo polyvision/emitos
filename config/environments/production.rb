@@ -46,7 +46,7 @@ Emitos::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( jquery.fancybox.css datepicker.css morris.css unicorn.grey.css unicorn.main.css bootstrap.css jquery.js bootstrap.js jquery_ujs.js bootstrap-datepicker.js bootstrap-datepicker.de.js jquery.fancybox.js raphael-min.js morris.min.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

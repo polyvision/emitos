@@ -4,4 +4,5 @@ class Setting < ActiveRecord::Base
   def self.get_val(name)
   	return Setting.find_by_name(name).value
   end
+
 end

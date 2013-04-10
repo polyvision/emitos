@@ -10,6 +10,15 @@ development:
   database: emitos
   pool: 5
   username: root #emitos
-  password: defaultpw #emit0s
+  password: #defaultpw #emit0s
   host: localhost
 
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  database: emitos
+  pool: 5
+  username: root #emitos
+  password: #defaultpw #emit0s
+  host: localhost

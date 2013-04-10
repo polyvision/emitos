@@ -1,5 +1,4 @@
 <div id="sidebar">
-  <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
     <% if !user_signed_in? %>
         <li>
@@ -7,13 +6,11 @@
         </li>
     <% end %>
     <% if user_signed_in? %>
-        <!--
-    <li>
-     <%= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    -->
+        <li <%= active_menu_state("home") %>>
+          <%= link_to("<i class=\"icon icon-home\"></i> #{t('nav.overview',:default => 'Übersicht')}".html_safe, {:action => 'index', :controller => '/home'}) %>
+        </li>
         <% if current_user.has_role? :admin %>
-            <li>
+            <li <%= active_menu_state("users") %>>
               <%= link_to("<i class=\"icon icon-user\"></i> #{t('nav.users')}".html_safe, users_path) %>
             </li>
         <% end %>

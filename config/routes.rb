@@ -33,6 +33,8 @@ Emitos::Application.routes.draw do
   match 'callbox/edit/:id' => 'callbox#edit'
   match 'callbox/update/:id' => 'callbox#update'
   match 'callbox/test_sound/:id' => 'callbox#test_sound', :format => :js
+  match 'callbox/test_activate/:id' => 'callbox#test_activate', :format => :js
+  match 'callbox/test_deactivate/:id' => 'callbox#test_deactivate', :format => :js
 
   match 'users' => 'users#index'
   match 'users/new' => 'users#new'

@@ -23,6 +23,8 @@ de:
     call_two_notification_number: ext. Nummer Nr.2
     call_three_notification_number: ext. Nummer Nr.3
     max_calls: max.Aufrufe
+    test_activate: Testaufruf - aktivieren
+    test_deactivate: Testaufruf - deaktivieren
 
   call_box_statistic:
     label:

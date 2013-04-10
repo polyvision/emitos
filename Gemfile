@@ -24,3 +24,5 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'therubyracer'
 gem 'pv_mobilant', :git => "git://github.com/polyvision/pv_mobilant.git"
+gem 'curb'
+gem 'puma'

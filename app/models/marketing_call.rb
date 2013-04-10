@@ -118,6 +118,10 @@ class MarketingCall < ActiveRecord::Base
   end
 
   def self.cycle
+    if MarketSetting.is_market_open? == false
+      puts "MarketingCall.cycle: aborted cause market is closed"
+      return
+    end
 
     MarketingCall.all.each do |mc|
       if (mc.play_today?)
