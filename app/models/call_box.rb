@@ -12,6 +12,9 @@ class CallBox < ActiveRecord::Base
   belongs_to :sound_file
   belongs_to :jingle_file, :class_name => 'SoundFile'
 
+  has_many :call_box_notifications, :dependent => :destroy
+  has_many :call_box_statistics, :dependent => :destroy
+
   def self.form_type_collection
     t = Hash.new
     t['Standard'] = CallBox::TYPE_DEFAULT

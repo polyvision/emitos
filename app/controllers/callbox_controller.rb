@@ -22,7 +22,13 @@ class CallboxController < ApplicationController
 		@call_box = CallBox.find(params[:id])
 		@call_box.update_attributes(params[:call_box])
 		redirect_to :action => 'index'
-	end
+  end
+
+  def delete
+    @call_box = CallBox.destroy
+
+    redirect_to :action => 'index'
+  end
 
 	def test_sound
 		@call_box = CallBox.find(params[:id])

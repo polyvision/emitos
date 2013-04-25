@@ -1,12 +1,15 @@
- <div class="btn-group">
- 	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
- 		<%= t('actions.actions') %>
- 		<span class="caret"></span>
- 	</a>
- 	<ul class="dropdown-menu">
- 		<li><%= link_to("<i class=\"icon-edit\"></i> #{t('actions.edit')}".html_safe,{:action => 'edit',:id => box.id},{:class => 'fancybox'}) %></li>
- 		<li><%= link_to("<i class=\"icon-play-circle\"></i> #{t('call_box.test_sound')}".html_safe,{:action => 'test_sound',:id => box.id},{:remote => true}) %></li>
-       <li><%= link_to("<i class=\"icon-play-circle\"></i> #{t('call_box.test_activate')}".html_safe,{:action => 'test_activate',:id => box.id},{:remote => true}) %></li>
-       <li><%= link_to("<i class=\"icon-play-circle\"></i> #{t('call_box.test_deactivate')}".html_safe,{:action => 'test_deactivate',:id => box.id},{:remote => true}) %></li>
- </ul>
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    <%= t('actions.actions') %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><%= link_to("<i class=\"icon-edit\"></i> #{t('actions.edit')}".html_safe, {:action => 'edit', :id => box.id}, {:class => 'fancybox'}) %></li>
+    <% if current_user.has_role? :admin %>
+        <li><%= link_to("<i class=\"icon-trash\"></i> #{t('actions.delete')}".html_safe, {:action => 'delete', :id => box.id}, {:confirm => 'Diese Rufsäule löschen?'}) %></li>
+    <% end %>
+    <li><%= link_to("<i class=\"icon-play-circle\"></i> #{t('call_box.test_sound')}".html_safe, {:action => 'test_sound', :id => box.id}, {:remote => true}) %></li>
+    <li><%= link_to("<i class=\"icon-play-circle\"></i> #{t('call_box.test_activate')}".html_safe, {:action => 'test_activate', :id => box.id}, {:remote => true}) %></li>
+    <li><%= link_to("<i class=\"icon-play-circle\"></i> #{t('call_box.test_deactivate')}".html_safe, {:action => 'test_deactivate', :id => box.id}, {:remote => true}) %></li>
+  </ul>
 </div>
