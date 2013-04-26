@@ -25,7 +25,8 @@ class CallboxController < ApplicationController
   end
 
   def delete
-    @call_box = CallBox.destroy
+    @call_box = CallBox.find(params[:id])
+    @call_box.destroy
 
     redirect_to :action => 'index'
   end

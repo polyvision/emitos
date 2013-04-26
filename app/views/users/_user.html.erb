@@ -1,7 +1,7 @@
-<div id="role-options-<%= user.id %>" class="modal" style="display: none;">
+<div id="role-options-<%= user.id %>" class="modal hide " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <%= simple_form_for(user, :url => {:action => 'update', :id => user.id}, :html => {:class => 'form-horizontal' }) do |f| %>
     <div class="modal-header">
-      <a class="close" data-dismiss="modal">&#215;</a>
+      <a type="button" class="close" data-dismiss="modal" aria-hidden="true">&#215;</a>
       <h3>Change Role</h3>
     </div>
     <div class="modal-body">
@@ -9,7 +9,7 @@
     </div>
     <div class="modal-footer">
       <%= f.submit "Change Role", :class => "btn" %>
-      <a class="btn" data-dismiss="modal" href="#">Close</a>
+      <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
     </div>
   <% end %>
 </div>

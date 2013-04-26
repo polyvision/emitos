@@ -11,8 +11,6 @@
   <%= javascript_include_tag "jquery" %>
   <%= javascript_include_tag "jquery_ujs" %>
   <%= javascript_include_tag "bootstrap.js" %>
-  <%= javascript_include_tag "bootstrap-dropdown" %>
-  <%= javascript_include_tag "bootstrap-modal" %>
   <%= javascript_include_tag "bootstrap-datepicker" %>
   <%= javascript_include_tag "bootstrap-datepicker.de.js" %>
   <%= javascript_include_tag "jquery.fancybox" %>
@@ -55,7 +53,10 @@
 </div>
 
 <script type="text/javascript">
-  $(".fancybox").fancybox();
- </script>
+    $(document).ready(function () {
+        $(".fancybox").fancybox();
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 </body>
 </html>
