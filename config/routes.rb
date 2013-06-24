@@ -44,6 +44,9 @@ Emitos::Application.routes.draw do
   match 'users/update/:id' => 'users#update'
   match 'users/delete/:id' => 'users#destroy'
 
+  match 'backup' => 'backup#index'
+  match 'backup/download' => 'backup#download'
+
   match 'home/active_call_boxes' => 'home#active_call_boxes'
 
   root :to => "home#index"

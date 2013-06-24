@@ -10,7 +10,7 @@
 
   <%= javascript_include_tag "jquery" %>
   <%= javascript_include_tag "jquery_ujs" %>
-  <%= javascript_include_tag "bootstrap.js" %>
+  <%= javascript_include_tag "bootstrap.min.js" %>
   <%= javascript_include_tag "bootstrap-datepicker" %>
   <%= javascript_include_tag "bootstrap-datepicker.de.js" %>
   <%= javascript_include_tag "jquery.fancybox" %>
@@ -38,7 +38,7 @@
   <ul class="nav btn-group">
     <% if user_signed_in? %>
         <li class="btn btn-inverse">
-          <%= link_to("<i class=\"icon icon-share-alt\"></i> <span class=\"text\">#{t('actions.logout')}</span>".html_safe, destroy_user_session_path, :method => 'delete') %>
+          <%= link_to("<i class=\"icon icon-share-alt\"></i> <span class=\"text\">#{current_user.email} #{t('actions.logout')}</span>".html_safe, destroy_user_session_path, :method => 'delete') %>
         </li>
     <% end %>
   </ul>
