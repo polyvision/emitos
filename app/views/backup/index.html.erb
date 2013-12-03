@@ -1,0 +1,15 @@
+<div id="content-header">
+  <h1><%= t('nav.backup') %></h1>
+</div>
+
+
+<table class="table table-striped">
+  <tbody>
+  <% @fentries.each do |entry| %>
+    <tr>
+      <td><%= link_to(File::basename(entry.path),{:action => 'download', :fe => File::basename(entry.path)}) %></td>
+      <td><%= I18n.l(File::atime(entry.path)) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

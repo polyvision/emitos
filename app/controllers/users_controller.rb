@@ -38,6 +38,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+
+      @user.add_role 'Admin'
       redirect_to :action => 'index'
     else
       render :action => 'new'

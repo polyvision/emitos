@@ -52,6 +52,12 @@
               <%= link_to("<i class=\"icon icon-leaf\"></i> #{t('nav.system')}".html_safe, {:action => 'index', :controller => '/setting'}) %>
             </li>
         <% end %>
+
+        <% if current_user.has_role?('Admin') %>
+            <li <%= active_menu_state("backup") %> >
+              <%= link_to("<i class=\"icon icon-download\"></i> #{t('nav.backup')}".html_safe, {:action => 'index', :controller => '/backup'}) %>
+            </li>
+        <% end %>
     <% end %>
   </ul>
 </div>

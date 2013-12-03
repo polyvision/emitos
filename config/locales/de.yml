@@ -6,6 +6,7 @@ de:
     marketing_calls: Durchsagen
     statistic: Statistik
     users: Benutzer
+    backup: Backups
 
   sound_file:
     new: Sounddatei hochladen
@@ -52,7 +53,7 @@ de:
     update: aktualisieren
     edit: bearbeiten
     delete: löschen
-    logout: Abmelden
+    logout: abmelden
 
   misc:
     created_at: erstellt am
