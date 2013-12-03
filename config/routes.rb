@@ -27,6 +27,8 @@ Emitos::Application.routes.draw do
   match 'soundfile/delete/:id' => 'soundfile#delete'
 
   match 'statistic' => 'statistic#index'
+  match 'statistic/common' => 'statistic#common'
+  match 'statistic/single' => 'statistic#single'
 
   match 'callbox' => 'callbox#index'
   match 'callbox/create' => 'callbox#create'

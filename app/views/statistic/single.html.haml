@@ -1,0 +1,54 @@
+#content-header
+	%h1
+		Statistik - Einzelne Rufsäulen
+
+#breadcrumb
+	%a{:href =>"/", :title => "Go to Home", :class=>"tip-bottom"}
+		%i.icon-home
+		Dashboard
+	%a{:href=>"/statistic/"}
+		Statistik
+	%a{:href=>"/statistic/", :class=>"current"}
+		Einzelne Rufsäulen
+
+.row-fluid
+	.span12
+		%h3
+			= @callbox.name if @callbox
+		#single-callbox
+		= form_tag({:action => 'single',:type=> 'single'}, {:class => "form-inline"}) do
+			%label{:class => "text"}
+				Startdatum:
+				%input{:type =>"text", :name => "start_date", :value=> @start_date, :class => "datepicker"}
+			%label{:class=>"text"}
+				Enddatum:
+				%input{:type => "text", :name => "end_date", :value => @end_date, :class => "datepicker"}
+			%label.text
+				Rufsäule:
+				%select{:name=>"callbox"}
+					-CallBox.order("name ASC").each do |call_box|
+						- if @callbox && @callbox.id == call_box.id
+							%option{:value=> call_box.id,:selected => true}
+								= call_box.name 
+						- else
+							%option{:value=> call_box.id}
+								= call_box.name 
+			= submit_tag(t('actions.update'), :class => 'btn btn-primary')
+
+		= link_to("CSV #{@start_date} bis #{@end_date} abrufen", {:action => 'single', :format => 'csv', :start_date => @start_date, :end_date => @end_date,:callbox => @callbox.id}, {:class => 'btn btn-info'})
+
+:javascript
+	Morris.Bar({
+		element: 'single-callbox',
+		data: #{@stat_data.to_json.html_safe},
+		xkey: 'y',
+		ykeys: ['a', 'b', 'c'],
+		labels: ['1. Aufruf', '2. Aufruf', '3. Aufruf']
+	});
+
+
+
+	$('.datepicker').datepicker({
+		format: 'yyyy-mm-dd',
+		language: 'de'
+	});

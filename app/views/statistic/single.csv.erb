@@ -1,0 +1,4 @@
+Datum;Station;Durchsagen
+<% @stat_data.each do |entry| %>
+<%= entry['y'] %>;<%= @callbox.name %>;<%= entry['a'] %>;<%= entry['b'] %>;<%= entry['c'] %>
+<% end %>
