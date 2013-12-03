@@ -10,14 +10,14 @@
 
   <%= javascript_include_tag "jquery" %>
   <%= javascript_include_tag "jquery_ujs" %>
-  <%= javascript_include_tag "bootstrap.js" %>
+  <%= javascript_include_tag "bootstrap.min.js" %>
   <%= javascript_include_tag "bootstrap-datepicker" %>
   <%= javascript_include_tag "bootstrap-datepicker.de.js" %>
   <%= javascript_include_tag "jquery.fancybox" %>
   <%= javascript_include_tag "raphael-min.js" %>
   <%= javascript_include_tag "morris.min.js" %>
 
-  <%= stylesheet_link_tag "bootstrap" %>
+  <%= stylesheet_link_tag "bootstrap.min" %>
   <%= stylesheet_link_tag "unicorn.main" %>
   <link rel="stylesheet" href="/assets/unicorn.grey.css" class="skin-color"/>
   <%= stylesheet_link_tag "jquery.fancybox" %>
@@ -53,10 +53,9 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(".fancybox").fancybox();
+        $(".fancybox").fancybox({type: 'ajax'});
         $('.dropdown-toggle').dropdown();
-    });
+
 </script>
 </body>
 </html>
