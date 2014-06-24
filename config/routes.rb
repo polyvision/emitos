@@ -29,6 +29,7 @@ Emitos::Application.routes.draw do
   match 'statistic' => 'statistic#index'
   match 'statistic/common' => 'statistic#common'
   match 'statistic/single' => 'statistic#single'
+  match 'statistic/daily' => 'statistic#daily'
 
   match 'callbox' => 'callbox#index'
   match 'callbox/create' => 'callbox#create'

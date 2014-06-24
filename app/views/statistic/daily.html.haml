@@ -1,0 +1,104 @@
+#content-header
+  %h1
+    Statistik - Tagesverlauf
+
+#breadcrumb
+  %a{:href =>"/", :title => "Go to Home", :class=>"tip-bottom"}
+    %i.icon-home
+    Dashboard
+  %a{:href=>"/statistic/"}
+    Statistik
+  %a{:href=>"/statistic/", :class=>"current"}
+    Tagesverlauf
+
+.row-fluid
+  .span12
+    %h3
+      = @callbox.name if @callbox
+    - r = Random.new
+    %table.table.table-striped
+      %thead
+      %tbody
+        - for i in 0..23 do
+          %tr
+            %td
+              = (i -23) * -1
+            %td
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+            %td
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+            %td
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+            %td
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+            %td
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+            %td
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+              |
+              = r.rand(10...42)
+        %tr
+          %td
+          %td
+            Elektroinfo
+          %td
+            Schlüsseldienst
+          %td
+            Flieseninfo
+          %td
+            Eisenwaren
+          %td
+            Stadtgarten
+          %td
+            Warenausgabe
+    
+    = form_tag({:action => 'daily'}, {:class => "form-inline"}) do
+      %label{:class => "text"}
+        Startdatum:
+        %input{:type =>"text", :name => "start_date", :value=> @start_date, :class => "datepicker"}
+      %label{:class=>"text"}
+        Enddatum:
+        %input{:type => "text", :name => "end_date", :value => @end_date, :class => "datepicker"}
+      %label.text
+        Rufsäule:
+        %select{:name=>"callbox"}
+          -CallBox.order("name ASC").each do |call_box|
+            - if @callbox && @callbox.id == call_box.id
+              %option{:value=> call_box.id,:selected => true}
+                = call_box.name 
+            - else
+              %option{:value=> call_box.id}
+                = call_box.name 
+      = submit_tag(t('actions.update'), :class => 'btn btn-primary')
+
+
+
+
+
+:javascript
+  $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd',
+    language: 'de'
+  });

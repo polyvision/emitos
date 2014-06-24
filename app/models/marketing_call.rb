@@ -152,6 +152,10 @@ class MarketingCall < ActiveRecord::Base
 
   def self.cycle_non_time_based(mc)
     puts "MarketingCall:cycle_non_time_based  ##{mc.id} #{mc.name}"
+    if mc.minutes_pro_call == nil
+      mc.minutes_pro_call = 0
+    end
+
     last_played_at_cal = (mc.minutes_pro_call * 60) # default value
     if mc.last_played_at && mc.last_played_at.to_s.length > 1 # in the first run, it's null
       last_played_at_cal = Time.now.to_i - mc.last_played_at.to_i
